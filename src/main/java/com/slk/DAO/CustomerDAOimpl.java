@@ -67,7 +67,7 @@ Statement stmt ;
 			int ab=rs.getInt(1);
 			ab=ab+1;
 			String sql ="Insert into customer values(?,?,?,?,?,?,?,?,?,?)"; 
-			while (rs.next()) {
+	
 			PreparedStatement pst = connection.prepareStatement(sql);
             pst.setLong(1,ab);
 			pst.setString(2, customer.getName());
@@ -89,7 +89,7 @@ Statement stmt ;
 				System.out.println("Customer Updated");
 
 			}
-			}
+	
 
 		} catch (SQLException e) {
 			e.printStackTrace();
