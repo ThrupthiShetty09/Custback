@@ -67,8 +67,7 @@ Statement stmt ;
 			int ab=rs.getInt(1);
 			ab=ab+1;
 			String sql ="Insert into customer values(?,?,?,?,?,?,?,?,?,?)"; 
-	
-			PreparedStatement pst = connection.prepareStatement(sql);
+			java.sql.PreparedStatement pst = connection.prepareStatement("Insert into customer values(?,?,?,?,?,?,?,?,?,?)");
             pst.setLong(1,ab);
 			pst.setString(2, customer.getName());
 			pst.setString(3, customer.getDob());
