@@ -33,8 +33,9 @@ public class CustomerRestController {
 		return customerDAO.getAllCustomers();
 	}
 	
-	@PostMapping(value="/put/customer")
+	@PostMapping(value="/post/customer")
 	public ResponseEntity updateCustomer(@RequestBody Customer customer) {
+		System.out.println("update customer");
 		customerDAO.updateCustomer(customer);
 		return new ResponseEntity(customer, HttpStatus.OK);
 	}
