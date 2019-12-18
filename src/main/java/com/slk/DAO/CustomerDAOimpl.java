@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Statement;
 import com.slk.model.Customer;
 import com.slk.util.DButil;
 @RestController
@@ -54,35 +55,45 @@ public class CustomerDAOimpl implements CustomerDAO {
 				return customer;
 			}
 		
-  public void updateCustomer(Customer customer) {
+
+public void updateCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-
+Statement stmt ;
+	String query="select max(cust_id) from customer";
 		try {
-
-			String sql = ("Update customer set name=?,DOB=?,contact=?, address=?,username=?,password=?,adhar_card=?,pan_card=?,branch_id=? where cust_id=?");
-
+			stmt=connection.createStatement();
+			ResultSet rs=stmt.executeQuery(query);
+			rs.next();
+			int ab=rs.getInt(1);
+			ab=ab+1;
+			String sql ="Insert into customer values(?,?,?,?,?,?,?,?,?,?)"; 
+			while (rs.next()) {
 			PreparedStatement pst = connection.prepareStatement(sql);
-            pst.setString(1, customer.getName());
-			pst.setString(2, customer.getDob());
-			pst.setLong(3, customer.getContact());
-			pst.setString(4, customer.getAddress());
-			pst.setString(5, customer.getUsername());
-			pst.setString(6, customer.getPassword());
-			pst.setLong(7, customer.getAadhar_no());
-			pst.setString(8, customer.getPan_no());
-			pst.setString(9, customer.getBranch_id());
+            pst.setLong(1,ab);
+			pst.setString(2, customer.getName());
+			pst.setString(3, customer.getDob());
+			pst.setLong(4, customer.getContact());
+			pst.setString(5, customer.getAddress());
+			pst.setString(6, customer.getUsername());
+			pst.setString(7, customer.getPassword());
+			pst.setLong(8, customer.getAadhar_no());
+			pst.setString(9, customer.getPan_no());
+			pst.setString(10, customer.getBranch_id());
+			
 			System.out.println("Customer Updated");
 
 			int res = pst.executeUpdate();
-
+			
+               
 			if (res > 0) {
 				System.out.println("Customer Updated");
 
+			}
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 }

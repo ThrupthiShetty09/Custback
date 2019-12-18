@@ -30,8 +30,8 @@ public class CustomerRestController {
 		System.out.println("function inside customer rest");
 		return customerDAO.getAllCustomers();
 	}
-	@PutMapping("/put/customer/{cust_id}")
-	public ResponseEntity updateCustomer(@PathVariable int cust_id, @RequestBody Customer customer) {
+	@PutMapping("/put/customer")
+	public ResponseEntity updateCustomer(@RequestBody Customer customer) {
 		
 		// if (null == customer) {
 		// return new ResponseEntity("No Customer found for ID " + id,
