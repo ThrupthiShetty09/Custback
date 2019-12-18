@@ -20,9 +20,9 @@ import com.slk.model.Customer;
 
 
 
-@CrossOrigin(origins = "http://localhost:4200")
-@RestController
 
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class CustomerRestController {
 	@Autowired
 	private CustomerDAO customerDAO;
