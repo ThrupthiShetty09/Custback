@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.slk.DAO.CustomerDAO;
-import com.slk.model.Agent;
+
 import com.slk.model.Customer;
 
 
