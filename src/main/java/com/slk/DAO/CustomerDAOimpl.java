@@ -75,8 +75,8 @@ Statement stmt ;
 			pst.setString(5, customer.getAddress());
 			pst.setString(6, customer.getUsername());
 			pst.setString(7, customer.getPassword());
-			pst.setLong(8, customer.getAadhar_no());
-			pst.setString(9, customer.getPan_no());
+			pst.setLong(8, customer.getAadhar_card());
+			pst.setString(9, customer.getPan_card());
 			pst.setString(10, customer.getBranch_id());
 			
 			System.out.println("Customer Updated");

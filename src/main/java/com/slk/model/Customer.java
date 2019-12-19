@@ -8,8 +8,8 @@ public class Customer {
 	public String address;
 	public String username;
 	public String password;
-	public long aadhar_no;
-	public String pan_no;
+	public long aadhar_card;
+	public String pan_card;
 	public String branch_id;
 	public String getCust_id() {
 		return cust_id;
@@ -53,17 +53,17 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public long getAadhar_no() {
-		return aadhar_no;
+	public long getAadhar_card() {
+		return aadhar_card;
 	}
-	public void setAadhar_no(long aadhar_no) {
-		this.aadhar_no = aadhar_no;
+	public void setAadhar_card(long aadhar_no) {
+		this.aadhar_card = aadhar_no;
 	}
-	public String getPan_no() {
-		return pan_no;
+	public String getPan_card() {
+		return pan_card;
 	}
-	public void setPan_no(String pan_no) {
-		this.pan_no = pan_no;
+	public void setPan_card(String pan_no) {
+		this.pan_card = pan_no;
 	}
 	public String getBranch_id() {
 		return branch_id;
