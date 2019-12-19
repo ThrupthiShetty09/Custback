@@ -32,7 +32,7 @@ public class CustomerDAOimpl implements CustomerDAO {
 					ResultSet rs = stmt.executeQuery();
 					while (rs.next()) {
                          Customer cst=new Customer();
-                     	cst.setCust_id(rs.getString(1));
+                     	cst.setCust_id(rs.getLong(1));
                      	System.out.println(rs.getInt(1));
                      	cst.setName(rs.getString(2));
                      	cst.setDob(rs.getString(3));
@@ -64,11 +64,11 @@ Statement stmt ;
 			stmt=connection.createStatement();
 			ResultSet rs=stmt.executeQuery(query);
 			rs.next();
-			String ab=rs.getString(1);
+			Long ab=rs.getLong(1);
 			ab=ab+1;
 /*			String sql ="Insert into customer values(?,?,?,?,?,?,?,?,?,?)"; 
 */			java.sql.PreparedStatement pst = connection.prepareStatement("Insert into customer values(?,?,?,?,?,?,?,?,?,?)");
-            pst.setString(1,ab);
+            pst.setLong(1,ab);
 			pst.setString(2, customer.getName());
 			pst.setString(3, customer.getDob());
 			pst.setLong(4, customer.getContact());

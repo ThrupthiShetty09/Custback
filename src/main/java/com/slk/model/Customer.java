@@ -1,7 +1,7 @@
 package com.slk.model;
 
 public class Customer {
-	public String cust_id;
+	public Long cust_id;
 	public String name;
 	public String dob;
 	public long contact;
@@ -11,10 +11,10 @@ public class Customer {
 	public long aadhar_card;
 	public String pan_card;
 	public String branch_id;
-	public String getCust_id() {
+	public Long getCust_id() {
 		return cust_id;
 	}
-	public void setCust_id(String cust_id) {
+	public void setCust_id(Long cust_id) {
 		this.cust_id = cust_id;
 	}
 	public String getName() {
