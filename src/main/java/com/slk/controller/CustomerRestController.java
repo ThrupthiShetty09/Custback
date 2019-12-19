@@ -33,7 +33,7 @@ public class CustomerRestController {
 		return customerDAO.getAllCustomers();
 	}
 	
-	@PostMapping(value="/post/customer2")
+	@PostMapping(value="/post/customer")
 	public ResponseEntity updateCustomer(@RequestBody Customer customer) {
 		System.out.println("update customer");
 		customerDAO.updateCustomer(customer);

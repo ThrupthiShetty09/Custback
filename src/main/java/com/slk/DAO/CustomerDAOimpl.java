@@ -59,16 +59,17 @@ public class CustomerDAOimpl implements CustomerDAO {
 public void updateCustomer(Customer customer) {
 		// TODO Auto-generated method stub
 Statement stmt ;
-	String query="select max(cust_id) from customer";
+	
 		try {
+			String query="select max(cust_id) from customer";
 			stmt=connection.createStatement();
 			ResultSet rs=stmt.executeQuery(query);
 			rs.next();
 			Long ab=rs.getLong(1);
-			ab=ab+1;
-/*			String sql ="Insert into customer values(?,?,?,?,?,?,?,?,?,?)"; 
-*/			java.sql.PreparedStatement pst = connection.prepareStatement("Insert into customer values(?,?,?,?,?,?,?,?,?,?)");
-            pst.setLong(1,ab);
+			Long temp_id = ++ab;
+			//String sql ="Insert into customer values(?,?,?,?,?,?,?,?,?,?)"; 
+			PreparedStatement pst = connection.prepareStatement("Insert into customer values(?,?,?,?,?,?,?,?,?,?)");
+            pst.setLong(1,temp_id);
 			pst.setString(2, customer.getName());
 			pst.setString(3, customer.getDob());
 			pst.setLong(4, customer.getContact());
