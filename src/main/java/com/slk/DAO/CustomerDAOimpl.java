@@ -32,7 +32,7 @@ public class CustomerDAOimpl implements CustomerDAO {
 					ResultSet rs = stmt.executeQuery();
 					while (rs.next()) {
                          Customer cst=new Customer();
-                     	cst.setCust_id(rs.getInt(1));
+                     	cst.setCust_id(rs.getString(1));
                      	System.out.println(rs.getInt(1));
                      	cst.setName(rs.getString(2));
                      	cst.setDob(rs.getString(3));
