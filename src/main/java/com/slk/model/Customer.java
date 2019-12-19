@@ -3,7 +3,7 @@ package com.slk.model;
 public class Customer {
 	public Long cust_id;
 	public String name;
-	public String dob;
+	public String DOB;
 	public long contact;
 	public String address;
 	public String username;
@@ -24,10 +24,10 @@ public class Customer {
 		this.name = name;
 	}
 	public String getDob() {
-		return dob;
+		return DOB;
 	}
 	public void setDob(String dob) {
-		this.dob = dob;
+		this.DOB = dob;
 	}
 	public long getContact() {
 		return contact;
