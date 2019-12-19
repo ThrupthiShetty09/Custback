@@ -40,8 +40,8 @@ public class CustomerDAOimpl implements CustomerDAO {
                      	cst.setAddress(rs.getString(5));
                      	cst.setUsername(rs.getString(6));
                      	cst.setPassword(rs.getString(7));
-                     	cst.setAadhar_no(rs.getLong(8));
-                     	cst.setPan_no(rs.getString(9));
+                     	cst.setAadhar_card(rs.getLong(8));
+                     	cst.setPan_card(rs.getString(9));
                      	cst.setBranch_id(rs.getString(10));
    
 						customer.add(cst);
