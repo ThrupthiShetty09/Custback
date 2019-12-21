@@ -28,7 +28,7 @@ public class b_CustomerDAOimpl implements b_CustomerDAO {
 
 		try {
 			//String statement = "select distinct customer.cust_id,name,dob,contact,address,aadhar_card,pan_card,branch_id,customer_Acc_no,balance,account_id from customer,customer_account where customer.cust_id=customer_account.cust_id;";
-			PreparedStatement stmt = connection.prepareStatement("select distinct customer.cust_id,name,dob,contact,address,aadhar_card,pan_card,branch_id,customer_Acc_no,balance,account_id from customer,customer_account where customer.cust_id=customer_account.cust_id;");
+			PreparedStatement stmt = connection.prepareStatement("select distinct customer.cust_id,name,dob,contact,address,aadhar_number,pan_number,branch_id,customer_Acc_no,balance,account_id from customer,customer_account where customer.cust_id=customer_account.cust_id;");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 
