@@ -156,7 +156,7 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 		System.out.println(employee_id);
 		try {
 			// emp=new Employee();
-			String query = "update employee set employee_name=?,dob=?,contact=?,mail=?,username=?,password=?,employee_role=? where employee_id=? && employee_role='managing director';";
+			String query = "update employee set employee_name=?,dob=?,contact=?,mail=?,username=?,password=?,employee_role=? where employee_id=? && employee_role='regional manager';";
 			PreparedStatement stmt = connection.prepareStatement(query);
 			stmt.setString(1, emp.getEmployee_name());
 			stmt.setString(2, emp.getDob());
