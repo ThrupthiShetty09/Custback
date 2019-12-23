@@ -1,17 +1,12 @@
 package com.slk.model;
 
 public class Branch {
-	private int br_id;
+	private String br_id;
 	private String br_name;
 	private String br_ifsc;
 	private String br_addr;
 	private long br_contact;
-	public int getBr_id() {
-		return br_id;
-	}
-	public void setBr_id(int br_id) {
-		this.br_id = br_id;
-	}
+	
 	public String getBr_name() {
 		return br_name;
 	}
@@ -35,5 +30,11 @@ public class Branch {
 	}
 	public void setBr_contact(long br_contact) {
 		this.br_contact = br_contact;
+	}
+	public String getBr_id() {
+		return br_id;
+	}
+	public void setBr_id(String br_id) {
+		this.br_id = br_id;
 	}
 }

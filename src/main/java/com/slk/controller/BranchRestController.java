@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,8 @@ import com.slk.model.Branch;
 
 @RestController
 @Repository
+@CrossOrigin(origins="http://localhost:4200")
+
 public class BranchRestController {
 	@Autowired
 	private BranchDAOImpl branchDaoImpl;
@@ -37,7 +40,7 @@ public class BranchRestController {
 	}
 	
 	@PutMapping("/put/branch/{id}")
-	public ResponseEntity updateBranch(@PathVariable Long id, @RequestBody Branch branch) {
+	public ResponseEntity updateBranch(@PathVariable String id, @RequestBody Branch branch) {
 
 		branch = branchDaoImpl.updateBranch(id, branch);
 
@@ -49,7 +52,7 @@ public class BranchRestController {
 	}
 	
 	@DeleteMapping("/delete/branch/{id}")
-	public ResponseEntity deleteBranch(@PathVariable Long id) {
+	public ResponseEntity deleteBranch(@PathVariable String id) {
 
 		if (null == branchDaoImpl.deleteBranch(id)) {
 			return new ResponseEntity("No Branch found for ID " + id, HttpStatus.NOT_FOUND);

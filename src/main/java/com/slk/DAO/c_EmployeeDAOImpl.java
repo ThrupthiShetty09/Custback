@@ -102,7 +102,7 @@ import com.slk.util.DButil;
 		public List<c_Customer> getAllCustomer1(String id,String id1) throws SQLException {
 			// TODO Auto-generated method stub
 			long id2=Long.parseLong(id1);
-			String query1="select  customer_Acc_no,c.name, c.dob, c.contact,address,aadhar_number, pan_number,branch_name,a.acc_type,ca.open_date,ca.balance,ca.approval from  customer c,employee_branch eb,branch b,customer_account ca,account a,employee e where eb.branch_id =c.branch_id and b.branch_id=c.branch_id and ca.cust_id=c.cust_id and a.account_id=ca.account_id and e.username='"+id+"' and ca.customer_Acc_no="+id2+"";
+			String query1="select  distinct(customer_Acc_no),c.name, c.dob, c.contact,address,aadhar_number, pan_number,branch_name,a.acc_type,ca.open_date,ca.balance,ca.approval from  customer c,employee_branch eb,branch b,customer_account ca,account a,employee e where eb.branch_id =c.branch_id and b.branch_id=c.branch_id and ca.cust_id=c.cust_id and a.account_id=ca.account_id and e.username='"+id+"' and ca.customer_Acc_no="+id2+"";
 			Statement st1=con.createStatement();
 			ResultSet rs=st1.executeQuery(query1);
 			List<c_Customer> l=new ArrayList<c_Customer>();

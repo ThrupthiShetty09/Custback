@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.stereotype.Repository;
 @Repository
 public class a_Employee {
-	private int empId;
+	private String empId;
 	private String name;
 	private String dob;
 	private long contact;
@@ -14,12 +14,7 @@ public class a_Employee {
 	private String pwd;
 	private String role;
 
-	public int getEmpId() {
-		return empId;
-	}
-	public void setEmpId(int empId) {
-		this.empId = empId;
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -61,6 +56,12 @@ public class a_Employee {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getEmpId() {
+		return empId;
+	}
+	public void setEmpId(String empId) {
+		this.empId = empId;
 	}
 	
 }

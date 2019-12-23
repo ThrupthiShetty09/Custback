@@ -55,7 +55,7 @@ public class EmployeeRestController {
 	}*/
 	
 	@PutMapping("/put/employee/{id}")
-	public ResponseEntity updateAdmins(@PathVariable Long id, @RequestBody a_Employee employee) {
+	public ResponseEntity updateAdmins(@PathVariable String id, @RequestBody a_Employee employee) {
 
 		employee = employeeDaoimpl.updateAdmin(id, employee);
 
@@ -67,7 +67,7 @@ public class EmployeeRestController {
 	}
 	
 	@PutMapping("/put/superuser/{id}")
-	public ResponseEntity updateSuser(@PathVariable Long id, @RequestBody a_Employee employee) {
+	public ResponseEntity updateSuser(@PathVariable String id, @RequestBody a_Employee employee) {
 
 		employee = employeeDaoimpl.updateSuperuser(id, employee);
 
@@ -81,7 +81,7 @@ public class EmployeeRestController {
 	
 	
 	@DeleteMapping("/delete/employee/{id}")
-	public ResponseEntity deleteAdmins(@PathVariable Long id) {
+	public ResponseEntity deleteAdmins(@PathVariable String id) {
 
 		if (null == employeeDaoimpl.deleteAdmin(id)) {
 			return new ResponseEntity("No Admin found for ID " + id, HttpStatus.NOT_FOUND);

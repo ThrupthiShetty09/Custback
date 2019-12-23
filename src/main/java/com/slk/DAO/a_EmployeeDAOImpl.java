@@ -38,7 +38,7 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 			
 			while(rs.next()) {
 				a_Employee emp = new a_Employee();
-				int empId = rs.getInt(1);
+				String empId = rs.getString(1);
 				String empName = rs.getString(2);
 				String empDob = rs.getString(3);
 				long empContact = rs.getLong(4);
@@ -83,7 +83,7 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 			
 			while(rs.next()) {
 				a_Employee emp = new a_Employee();
-				int empId = rs.getInt(1);
+				String empId = rs.getString(1);
 				String empName = rs.getString(2);
 				String empDob = rs.getString(3);
 				long empContact = rs.getLong(4);
@@ -128,8 +128,13 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 			ResultSet select_rs = select_stmt.executeQuery(select_query);
 
 			select_rs.next();
-			int emp_Id = select_rs.getInt(1);
-			int temp_empId = ++emp_Id;
+			String id = "e0";
+			String emp_Id = select_rs.getString(1);
+			int temp_id = Integer.parseInt(emp_Id.substring(2));
+			int temp_empId = ++temp_id;
+			String eid = id+temp_empId;
+			//int emp_Id = select_rs.getInt(1);
+			//int temp_empId = ++emp_Id;
 			/*employee.setEmpId(temp_empId);
 			employee.setName("Soumya");
 			employee.setDob("1997-07-25");
@@ -139,7 +144,7 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 			employee.setRole(role);*/
 			PreparedStatement pst = connection.prepareStatement("Insert into Employee values(?,?,?,?,?,?,?,?)");
 			
-			pst.setInt(1,temp_empId);
+			pst.setString(1,eid);
 			pst.setString(2,employee.getName());
 			pst.setString(3,employee.getDob());
 			pst.setLong(4,employee.getContact());
@@ -161,7 +166,7 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 	
 
 	@Override
-	public a_Employee updateAdmin(Long empId,a_Employee emp)
+	public a_Employee updateAdmin(String empId,a_Employee emp)
 	{
 		try {
 			String updSql = "UPDATE  Employee set employee_name = ?,dob = ?,contact = ?,mail = ?,username =?,password = ?,employee_role=? WHERE employee_id = ?";
@@ -174,7 +179,7 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 			pst.setString(5, emp.getUsername());
 			pst.setString(6, emp.getPwd());
 			pst.setString(7, emp.getRole());
-			pst.setLong(8, empId);
+			pst.setString(8, empId);
 			
 			int res  = pst.executeUpdate();
 			
@@ -193,10 +198,10 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 	}
 	
 	@Override
-	public a_Employee updateSuperuser(Long empId, a_Employee emp) {
+	public a_Employee updateSuperuser(String empId, a_Employee emp) {
 		// TODO Auto-generated method stub
 		try {
-			String updSql = "UPDATE  Employee set employee_name = ?,dob = ?,contact = ?,mail = ?username =?,password = ?,employee_role=? WHERE employee_id = ?";
+			String updSql = "UPDATE  Employee set employee_name = ?,dob = ?,contact = ?,mail = ?,username =?,password = ?,employee_role=? WHERE employee_id = ?";
 			PreparedStatement pst = connection.prepareStatement(updSql);
 			
 			pst.setString(1, emp.getName());
@@ -206,7 +211,7 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 			pst.setString(5, emp.getUsername());
 			pst.setString(6, emp.getPwd());
 			pst.setString(7, emp.getRole());
-			pst.setLong(8, empId);
+			pst.setString(8, empId);
 			
 			int res  = pst.executeUpdate();
 			
@@ -225,13 +230,13 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 	}
 	
 	@Override
-	public Long deleteAdmin(Long empId) {
+	public String deleteAdmin(String empId) {
 		// TODO Auto-generated method stub
 		try{
 			
 			String sql="DELETE FROM Employee WHERE employee_id = ? ";			
 			PreparedStatement pst = connection.prepareStatement(sql);
-			pst.setLong(1, empId);
+			pst.setString(1, empId);
 			
 			int res  = pst.executeUpdate();
 			
@@ -262,7 +267,7 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 			ResultSet rs = st.executeQuery();
 			while(rs.next()) {
 				a_Employee employee = new a_Employee();
-				employee.setEmpId(rs.getInt(1));
+				employee.setEmpId(rs.getString(1));
 				employee.setName(rs.getString(2));
 				employee.setDob(rs.getString(3));
 				employee.setContact(rs.getLong(4));
@@ -315,5 +320,3 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 	
 
 }
-
-

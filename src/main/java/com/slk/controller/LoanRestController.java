@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,8 @@ import com.slk.model.Loan;
 
 @RestController
 @Repository
+@CrossOrigin(origins="http://localhost:4200")
+
 public class LoanRestController {
 	
 	@Autowired
@@ -38,7 +41,7 @@ public class LoanRestController {
 	}
 	
 	@PutMapping("/put/loan/{id}")
-	public ResponseEntity updateLoans(@PathVariable Long id, @RequestBody Loan loan) {
+	public ResponseEntity updateLoans(@PathVariable String id, @RequestBody Loan loan) {
 
 		loan = loanDaoImpl.updateLoan(id, loan);
 
@@ -50,7 +53,7 @@ public class LoanRestController {
 	}
 	
 	@DeleteMapping("/delete/loan/{id}")
-	public ResponseEntity deleteLoans(@PathVariable Long id) {
+	public ResponseEntity deleteLoans(@PathVariable String id) {
 
 		if (null == loanDaoImpl.deleteLoan(id)) {
 			return new ResponseEntity("No Loan found for ID " + id, HttpStatus.NOT_FOUND);

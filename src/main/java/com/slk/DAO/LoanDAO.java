@@ -9,7 +9,7 @@ import com.slk.model.Loan;
 public interface LoanDAO {
 	Loan addLoan(Loan loan);
 	List<Loan> getAllLoans();
-	Loan updateLoan(Long loanId,Loan loan);
-	Long deleteLoan(Long loanId);
+	Loan updateLoan(String loanId,Loan loan);
+	String deleteLoan(String loanId);
 	List<Loan> get(String loan_type);
 }
