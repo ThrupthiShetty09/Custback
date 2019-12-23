@@ -78,7 +78,7 @@ import com.slk.util.DButil;
 			// TODO Auto-generated method stub
 			
 			
-			String query1="select account_no,c.name,date,time,debit,credit,t.balance,b.branch_name from transaction t,customer c,customer_account ca,employee e,employee_branch eb,branch b where t.account_no=ca.customer_Acc_no and ca.cust_id=c.cust_id and e.employee_id=eb.employee_id and eb.branch_id=b.branch_id and c.branch_id=b.branch_id and e.username='"+id+"'";
+			String query1="select account_no,c.name,date,time,debit,credit,t.balance,b.branch_name from transaction t,customer c,customer_account ca,employee e,employee_branch eb,branch b where e.employee_id=eb.employee_id and eb.branch_id=c.branch_id and t.cust_id=c.cust_id and c.branch_id=b.branch_id and e.username='"+id+"'";
 			Statement st1=con.createStatement();
 			ResultSet rs=st1.executeQuery(query1);
 			List<c_Transaction> tt=new ArrayList<c_Transaction>();
