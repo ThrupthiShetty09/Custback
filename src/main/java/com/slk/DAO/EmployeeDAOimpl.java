@@ -128,7 +128,7 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 		Employee emp = null;
 		try {
 
-			String query = "select * from employee  where employee_role='managing director' && employee_id=?;";
+			String query = "select * from employee  where employee_role='regional manager' && employee_id=?;";
 			PreparedStatement stmt = connection.prepareStatement(query);
 			stmt.setString(1, employee_id);
 			ResultSet rs = stmt.executeQuery();
