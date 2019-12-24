@@ -4,11 +4,11 @@ public class Customer {
 	public Long cust_id;
 	public String name;
 	public String DOB;
-	public long contact;
+	public Long contact;
 	public String address;
 	public String username;
 	public String password;
-	public long aadhar_card;
+	public Long aadhar_card;
 	public String pan_card;
 	public String branch_id;
 	public Long getCust_id() {
@@ -32,7 +32,7 @@ public class Customer {
 	public long getContact() {
 		return contact;
 	}
-	public void setContact(long contact) {
+	public void setContact(Long contact) {
 		this.contact = contact;
 	}
 	public String getAddress() {
@@ -56,7 +56,7 @@ public class Customer {
 	public long getAadhar_card() {
 		return aadhar_card;
 	}
-	public void setAadhar_card(long aadhar_no) {
+	public void setAadhar_card(Long aadhar_no) {
 		this.aadhar_card = aadhar_no;
 	}
 	public String getPan_card() {
