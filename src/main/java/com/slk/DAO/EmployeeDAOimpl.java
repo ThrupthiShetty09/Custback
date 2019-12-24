@@ -180,7 +180,7 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 	
 	Employee emp = new Employee();
 	boolean flag = false;
-	PreparedStatement stmt = connection.prepareStatement("select username,password from employee where username=?  and password=? and role='regional manager'");
+	PreparedStatement stmt = connection.prepareStatement("select username,password from employee where username=?  and password=? and employee_role='regional manager'");
 	stmt.setString(1, username);
 	stmt.setString(2, password);
 	ResultSet rs = stmt.executeQuery();
