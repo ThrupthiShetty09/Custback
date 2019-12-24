@@ -37,9 +37,9 @@ public class BranchDAOImpl implements BranchDAO{
 
 			select_rs.next();
 			//select_rs.next();
-			String id = "b0";
+			String id = "ABC0";
 			String br_Id = select_rs.getString(1);
-			int temp_id = Integer.parseInt(br_Id.substring(2));
+			int temp_id = Integer.parseInt(br_Id.substring(5));
 			int temp_brId = ++temp_id;
 			String eid = id+temp_brId;
 			//int branch_Id = select_rs.getInt(1);
