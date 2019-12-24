@@ -258,6 +258,7 @@ public class D_CustomerImpl implements D_CustomerInterface{
 	        	lnAcc.setLoan_id(rs.getString("loan_type"));
 	        	lnAcc.setAccount_no(rs.getLong("account_no"));
 	        	listLoan.add(lnAcc);
+	        	
 	        }
 		}catch(Exception e){
 			System.out.println(e);
