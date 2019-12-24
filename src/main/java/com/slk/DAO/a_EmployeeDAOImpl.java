@@ -128,7 +128,7 @@ public class a_EmployeeDAOImpl implements a_EmployeeDAO {
 			ResultSet select_rs = select_stmt.executeQuery(select_query);
 
 			select_rs.next();
-			String id = "e0";
+			String id = "eO";
 			String emp_Id = select_rs.getString(1);
 			int temp_id = Integer.parseInt(emp_Id.substring(2));
 			int temp_empId = ++temp_id;
