@@ -247,18 +247,16 @@ public class D_CustomerImpl implements D_CustomerInterface{
 			Connection conn=DButil.getConnection();
 			Statement stmt = conn.createStatement(); 
 			listLoan.clear();
-	        ResultSet rs=stmt.executeQuery("SELECT cust_id,account_no,issue_amount,balance,loan_type,interest_rate,open_date,close_date FROM loan INNER JOIN loanaccount ON loan.loan_id = loanaccount.loan_id where cust_id="+id); 
+	        ResultSet rs=stmt.executeQuery("SELECT account_no,balance,loan_type,interest_rate,open_date,close_date FROM loan INNER JOIN loanaccount ON loan.loan_id = loanaccount.loan_id where account_no="+id); 
 	        while(rs.next()){
 	        	LoanAccount lnAcc=new LoanAccount();
 	        	
 	        	lnAcc.setOpen_date(rs.getString("open_date"));
 	        	lnAcc.setClose_date("close_date");
 	        	lnAcc.setBalance(rs.getDouble("balance"));
-	        	lnAcc.setIssue_amount(rs.getDouble("issue_amount"));
 	        	lnAcc.setInterest_rate(rs.getDouble("interest_rate"));
 	        	lnAcc.setLoan_id(rs.getString("loan_type"));
 	        	lnAcc.setAccount_no(rs.getLong("account_no"));
-	        	lnAcc.setCust_id(rs.getLong("cust_id"));
 	        	listLoan.add(lnAcc);
 	        }
 		}catch(Exception e){
