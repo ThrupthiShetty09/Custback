@@ -182,6 +182,8 @@ public class D_CustomerImpl implements D_CustomerInterface{
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println(formatter.format(date));
+		SimpleDateFormat ftime = new SimpleDateFormat("HH:mm:ss");
+		System.out.println(ftime.format(date));
 		try{
 			Connection conn=DButil.getConnection();
 			Statement stmt = conn.createStatement(); 
@@ -194,14 +196,14 @@ public class D_CustomerImpl implements D_CustomerInterface{
 	        		debit=amount;
 	        		
 	        		stmt.executeUpdate("update customer_account set balance="+tempAmt+" where customer_Acc_no="+transAcc.getSenderAccount());
-	        		stmt.executeUpdate("insert into transaction values("+transId+",'"+formatter.format(date)+"','"+formatter.format(date)+"',"+debit+","+credit+","+tempAmt+","+transAcc.getSenderAccount()+","+transAcc.getCust_id()+")");
+	        		stmt.executeUpdate("insert into transaction values("+transId+",'"+formatter.format(date)+"','"+ftime.format(date)+"',"+debit+","+credit+","+tempAmt+","+transAcc.getSenderAccount()+","+transAcc.getCust_id()+")");
 	        		debit=0;
 	        		credit=amount;
 	        		
 	        		tempAmt=transAcc.getReceiverAmt()+amount;
 	        		transId++;
 	        		stmt.executeUpdate("update customer_account set balance="+tempAmt+" where customer_Acc_no="+transAcc.getReceiverAccount());
-	        		stmt.executeUpdate("insert into transaction values("+transId+",'"+formatter.format(date)+"','"+formatter.format(date)+"',"+debit+","+credit+","+tempAmt+","+transAcc.getReceiverAccount()+","+transAcc.getCust_id()+")");
+	        		stmt.executeUpdate("insert into transaction values("+transId+",'"+formatter.format(date)+"','"+ftime.format(date)+"',"+debit+","+credit+","+tempAmt+","+transAcc.getReceiverAccount()+","+transAcc.getCust_id()+")");
 	        		flag=1;
 	      
 	       
