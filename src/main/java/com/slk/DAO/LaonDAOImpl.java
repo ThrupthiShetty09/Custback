@@ -144,7 +144,7 @@ public class LaonDAOImpl implements LoanDAO {
 		// TODO Auto-generated method stub
 		try{
 			
-			String sql="DELETE FROM loan WHERE loanId = ? ";			
+			String sql="DELETE FROM loan WHERE loan_id = ? ";			
 			PreparedStatement pst = connection.prepareStatement(sql);
 			pst.setString(1, loanId);
 			
